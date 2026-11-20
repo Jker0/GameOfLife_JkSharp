@@ -11,7 +11,25 @@ namespace GameOfLife_JkSh
     internal static class Game
     {
         private static bool PreliminaryCalculation = true;
-        public static void NextStep(BoardCanvas boardCanvas)
+
+        public static void NextStepWithoutPrelim(BoardCanvas boardCanvas)
+        {
+            NextStep(boardCanvas);
+            boardCanvas.UpdateCanvas();
+
+            if (!PreliminaryCalculation)
+            {
+                NextStep(boardCanvas);
+                boardCanvas.UpdateCanvas();
+            }
+        }
+
+        public static void NextStepWithPrelim(BoardCanvas boardCanvas)
+        {
+            NextStep(boardCanvas);
+            boardCanvas.UpdateCanvas();
+        }
+        private static void NextStep(BoardCanvas boardCanvas)
         {
             int CountNearCell = 0;
             int MaxY = boardCanvas.GetLength(0);
@@ -36,8 +54,7 @@ namespace GameOfLife_JkSh
                     }                          
                 }
 
-            PreliminaryCalculation = !PreliminaryCalculation; 
-            boardCanvas.UpdateCanvas();
+            PreliminaryCalculation = !PreliminaryCalculation;             
         }
 
         private static int CountNearCells(int row, int col, BoardCanvas boardCanvas, int MaxX, int MaxY)

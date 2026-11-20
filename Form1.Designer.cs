@@ -30,9 +30,9 @@
         {
             Board = new PictureBox();
             gbMainControl = new GroupBox();
-            MarkupMode = new CheckBox();
-            bStart = new Button();
+            cbPreliminaryCalculation = new CheckBox();
             bClear = new Button();
+            bStart = new Button();
             ((System.ComponentModel.ISupportInitialize)Board).BeginInit();
             gbMainControl.SuspendLayout();
             SuspendLayout();
@@ -49,50 +49,50 @@
             // 
             // gbMainControl
             // 
+            gbMainControl.Controls.Add(cbPreliminaryCalculation);
             gbMainControl.Controls.Add(bClear);
-            gbMainControl.Controls.Add(MarkupMode);
             gbMainControl.Controls.Add(bStart);
             gbMainControl.Location = new Point(842, 12);
             gbMainControl.Name = "gbMainControl";
-            gbMainControl.Size = new Size(210, 784);
+            gbMainControl.Size = new Size(225, 784);
             gbMainControl.TabIndex = 0;
             gbMainControl.TabStop = false;
             // 
-            // MarkupMode
+            // cbPreliminaryCalculation
             // 
-            MarkupMode.AutoSize = true;
-            MarkupMode.Location = new Point(11, 18);
-            MarkupMode.Name = "MarkupMode";
-            MarkupMode.Size = new Size(151, 29);
-            MarkupMode.TabIndex = 1;
-            MarkupMode.Text = "Markup mode";
-            MarkupMode.UseVisualStyleBackColor = true;
-            // 
-            // bStart
-            // 
-            bStart.Location = new Point(11, 744);
-            bStart.Name = "bStart";
-            bStart.Size = new Size(112, 34);
-            bStart.TabIndex = 0;
-            bStart.Text = "Start";
-            bStart.UseVisualStyleBackColor = true;
-            bStart.Click += bStart_Click;
+            cbPreliminaryCalculation.AutoSize = true;
+            cbPreliminaryCalculation.Location = new Point(6, 715);
+            cbPreliminaryCalculation.Name = "cbPreliminaryCalculation";
+            cbPreliminaryCalculation.Size = new Size(213, 29);
+            cbPreliminaryCalculation.TabIndex = 3;
+            cbPreliminaryCalculation.Text = "Preliminary calculation";
+            cbPreliminaryCalculation.UseVisualStyleBackColor = true;
             // 
             // bClear
             // 
-            bClear.Location = new Point(11, 53);
+            bClear.Location = new Point(128, 750);
             bClear.Name = "bClear";
-            bClear.Size = new Size(112, 34);
+            bClear.Size = new Size(97, 34);
             bClear.TabIndex = 2;
             bClear.Text = "Clear";
             bClear.UseVisualStyleBackColor = true;
             bClear.Click += bClear_Click;
             // 
+            // bStart
+            // 
+            bStart.Location = new Point(6, 750);
+            bStart.Name = "bStart";
+            bStart.Size = new Size(99, 34);
+            bStart.TabIndex = 0;
+            bStart.Text = "Start";
+            bStart.UseVisualStyleBackColor = true;
+            bStart.Click += bStart_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1064, 810);
+            ClientSize = new Size(1079, 810);
             Controls.Add(gbMainControl);
             Controls.Add(Board);
             Name = "Form1";
@@ -108,7 +108,7 @@
         private PictureBox Board;
         private GroupBox gbMainControl;
         private Button bStart;
-        private CheckBox MarkupMode;
         private Button bClear;
+        private CheckBox cbPreliminaryCalculation;
     }
 }
