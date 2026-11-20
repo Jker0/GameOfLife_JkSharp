@@ -10,21 +10,33 @@ namespace GameOfLife_JkSh
 {
     internal static class Game
     {
+        private static bool PreliminaryCalculation = true;
         public static void NextStep(BoardCanvas boardCanvas)
         {
             int CountNearCell = 0;
             int MaxY = boardCanvas.GetLength(0);
             int MaxX = boardCanvas.GetLength(1);
-            for (int X = 0; X < MaxX; X++) 
+            for (int X = 0; X < MaxX; X++)
                 for (int Y = 0; Y < MaxY; Y++)
                 {
-                    CountNearCell = CountNearCells(X, Y, boardCanvas, MaxX, MaxY);
-                    if (boardCanvas[Y, X] == 1 && (CountNearCell < 2 || CountNearCell > 3))
-                        boardCanvas[Y, X] = 2;
-                    else if (boardCanvas[Y, X] == 0 && CountNearCell == 3)
-                        boardCanvas[Y, X] = 3;
+                    if (PreliminaryCalculation)
+                    {
+                        CountNearCell = CountNearCells(X, Y, boardCanvas, MaxX, MaxY);
+                        if (boardCanvas[Y, X] == 1 && (CountNearCell < 2 || CountNearCell > 3))
+                            boardCanvas[Y, X] = 2;
+                        else if (boardCanvas[Y, X] == 0 && CountNearCell == 3)
+                            boardCanvas[Y, X] = 3;
+                    }
+                    else
+                    {
+                        if (boardCanvas[Y, X] == 2)
+                            boardCanvas[Y, X] = 0;
+                        else if (boardCanvas[Y, X] == 3)
+                            boardCanvas[Y, X] = 1;
+                    }                          
                 }
 
+            PreliminaryCalculation = !PreliminaryCalculation; 
             boardCanvas.UpdateCanvas();
         }
 
