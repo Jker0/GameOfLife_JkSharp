@@ -16,7 +16,29 @@ namespace GameOfLife_JkSh
 
         private void bStart_Click(object sender, EventArgs e)
         {
+            MarkupMode.Checked = false;
+            Game.NextStep(BoardCanvas);
+            Board.Refresh();
+        }
 
+        private void Board_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Board_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (MarkupMode.Checked)
+            {
+                BoardCanvas.DrawCellByPoint(e.Location, 1);
+                Board.Refresh();
+            }
+        }
+
+        private void bClear_Click(object sender, EventArgs e)
+        {
+            BoardCanvas.ClearCanvas();
+            Board.Refresh();
         }
     }
 }
