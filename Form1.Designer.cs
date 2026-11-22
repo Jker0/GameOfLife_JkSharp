@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             Board = new PictureBox();
             gbMainControl = new GroupBox();
             cbPreliminaryCalculation = new CheckBox();
             bClear = new Button();
             bStart = new Button();
+            timer1 = new System.Windows.Forms.Timer(components);
+            btNextStep = new Button();
             ((System.ComponentModel.ISupportInitialize)Board).BeginInit();
             gbMainControl.SuspendLayout();
             SuspendLayout();
@@ -49,6 +52,7 @@
             // 
             // gbMainControl
             // 
+            gbMainControl.Controls.Add(btNextStep);
             gbMainControl.Controls.Add(cbPreliminaryCalculation);
             gbMainControl.Controls.Add(bClear);
             gbMainControl.Controls.Add(bStart);
@@ -61,7 +65,7 @@
             // cbPreliminaryCalculation
             // 
             cbPreliminaryCalculation.AutoSize = true;
-            cbPreliminaryCalculation.Location = new Point(6, 715);
+            cbPreliminaryCalculation.Location = new Point(12, 20);
             cbPreliminaryCalculation.Name = "cbPreliminaryCalculation";
             cbPreliminaryCalculation.Size = new Size(213, 29);
             cbPreliminaryCalculation.TabIndex = 3;
@@ -70,7 +74,7 @@
             // 
             // bClear
             // 
-            bClear.Location = new Point(128, 750);
+            bClear.Location = new Point(122, 55);
             bClear.Name = "bClear";
             bClear.Size = new Size(97, 34);
             bClear.TabIndex = 2;
@@ -80,13 +84,27 @@
             // 
             // bStart
             // 
-            bStart.Location = new Point(6, 750);
+            bStart.Location = new Point(128, 744);
             bStart.Name = "bStart";
             bStart.Size = new Size(99, 34);
             bStart.TabIndex = 0;
             bStart.Text = "Start";
             bStart.UseVisualStyleBackColor = true;
             bStart.Click += bStart_Click;
+            // 
+            // timer1
+            // 
+            timer1.Tick += timer1_Tick;
+            // 
+            // btNextStep
+            // 
+            btNextStep.Location = new Point(12, 55);
+            btNextStep.Name = "btNextStep";
+            btNextStep.Size = new Size(104, 34);
+            btNextStep.TabIndex = 4;
+            btNextStep.Text = "NextStep";
+            btNextStep.UseVisualStyleBackColor = true;
+            btNextStep.Click += btNextStep_Click;
             // 
             // Form1
             // 
@@ -110,5 +128,7 @@
         private Button bStart;
         private Button bClear;
         private CheckBox cbPreliminaryCalculation;
+        private System.Windows.Forms.Timer timer1;
+        private Button btNextStep;
     }
 }

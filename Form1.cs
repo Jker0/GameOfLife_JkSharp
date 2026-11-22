@@ -1,4 +1,5 @@
 
+using System.Diagnostics.Eventing.Reader;
 using System.Windows.Forms;
 using BoardCanvas_Jker0_Lib;
 
@@ -15,13 +16,20 @@ namespace GameOfLife_JkSh
         }
 
         private void bStart_Click(object sender, EventArgs e)
-        {            
-            if(cbPreliminaryCalculation.Checked)
-                Game.NextStepWithPrelim(BoardCanvas);
+        {
+            if(bStart.Text == "Start")
+            { 
+                bStart.Text = "Stop";
+                btNextStep.Enabled = false;
+                timer1.Start();
+            }
             else
-                Game.NextStepWithoutPrelim(BoardCanvas);
-
-            Board.Refresh();
+            {
+                bStart.Text = "Start";
+                btNextStep.Enabled = true;
+                timer1.Stop();
+            }
+            
         }
 
         private void Board_Click(object sender, EventArgs e)
@@ -33,12 +41,36 @@ namespace GameOfLife_JkSh
         {
             BoardCanvas.DrawCellByPoint(e.Location, 1);
             Board.Refresh();
-         
+
         }
 
         private void bClear_Click(object sender, EventArgs e)
         {
+            bStart.Text = "Start";
+            btNextStep.Enabled = true;
+            timer1.Stop();
+
             BoardCanvas.ClearCanvas();
+            Board.Refresh();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (cbPreliminaryCalculation.Checked)
+                Game.NextStepWithPrelim(BoardCanvas);
+            else
+                Game.NextStepWithoutPrelim(BoardCanvas);
+
+            Board.Refresh();
+        }
+
+        private void btNextStep_Click(object sender, EventArgs e)
+        {
+            if (cbPreliminaryCalculation.Checked)
+                Game.NextStepWithPrelim(BoardCanvas);
+            else
+                Game.NextStepWithoutPrelim(BoardCanvas);
+
             Board.Refresh();
         }
     }
