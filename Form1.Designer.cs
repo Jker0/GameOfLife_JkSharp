@@ -31,20 +31,23 @@
             components = new System.ComponentModel.Container();
             Board = new PictureBox();
             gbMainControl = new GroupBox();
-            cbPreliminaryCalculation = new CheckBox();
+            gbButtons = new GroupBox();
+            btNextStep = new Button();
             bClear = new Button();
+            cbPreliminaryCalculation = new CheckBox();
             bStart = new Button();
             timer1 = new System.Windows.Forms.Timer(components);
-            btNextStep = new Button();
             ((System.ComponentModel.ISupportInitialize)Board).BeginInit();
             gbMainControl.SuspendLayout();
+            gbButtons.SuspendLayout();
             SuspendLayout();
             // 
             // Board
             // 
-            Board.Location = new Point(12, 12);
+            Board.Dock = DockStyle.Left;
+            Board.Location = new Point(0, 0);
             Board.Name = "Board";
-            Board.Size = new Size(824, 784);
+            Board.Size = new Size(848, 810);
             Board.TabIndex = 0;
             Board.TabStop = false;
             Board.Click += Board_Click;
@@ -52,41 +55,66 @@
             // 
             // gbMainControl
             // 
-            gbMainControl.Controls.Add(btNextStep);
+            gbMainControl.Controls.Add(gbButtons);
             gbMainControl.Controls.Add(cbPreliminaryCalculation);
-            gbMainControl.Controls.Add(bClear);
             gbMainControl.Controls.Add(bStart);
-            gbMainControl.Location = new Point(842, 12);
+            gbMainControl.Dock = DockStyle.Right;
+            gbMainControl.Location = new Point(854, 0);
             gbMainControl.Name = "gbMainControl";
-            gbMainControl.Size = new Size(225, 784);
+            gbMainControl.Size = new Size(225, 810);
             gbMainControl.TabIndex = 0;
             gbMainControl.TabStop = false;
             // 
-            // cbPreliminaryCalculation
+            // gbButtons
             // 
-            cbPreliminaryCalculation.AutoSize = true;
-            cbPreliminaryCalculation.Location = new Point(12, 20);
-            cbPreliminaryCalculation.Name = "cbPreliminaryCalculation";
-            cbPreliminaryCalculation.Size = new Size(213, 29);
-            cbPreliminaryCalculation.TabIndex = 3;
-            cbPreliminaryCalculation.Text = "Preliminary calculation";
-            cbPreliminaryCalculation.UseVisualStyleBackColor = true;
+            gbButtons.Controls.Add(btNextStep);
+            gbButtons.Controls.Add(bClear);
+            gbButtons.Dock = DockStyle.Top;
+            gbButtons.Location = new Point(3, 56);
+            gbButtons.Name = "gbButtons";
+            gbButtons.Size = new Size(219, 65);
+            gbButtons.TabIndex = 5;
+            gbButtons.TabStop = false;
+            // 
+            // btNextStep
+            // 
+            btNextStep.Dock = DockStyle.Left;
+            btNextStep.Location = new Point(3, 27);
+            btNextStep.Name = "btNextStep";
+            btNextStep.Size = new Size(104, 35);
+            btNextStep.TabIndex = 4;
+            btNextStep.Text = "NextStep";
+            btNextStep.UseVisualStyleBackColor = true;
+            btNextStep.Click += btNextStep_Click;
             // 
             // bClear
             // 
-            bClear.Location = new Point(122, 55);
+            bClear.Dock = DockStyle.Right;
+            bClear.Location = new Point(119, 27);
             bClear.Name = "bClear";
-            bClear.Size = new Size(97, 34);
+            bClear.Size = new Size(97, 35);
             bClear.TabIndex = 2;
             bClear.Text = "Clear";
             bClear.UseVisualStyleBackColor = true;
             bClear.Click += bClear_Click;
             // 
+            // cbPreliminaryCalculation
+            // 
+            cbPreliminaryCalculation.AutoSize = true;
+            cbPreliminaryCalculation.Dock = DockStyle.Top;
+            cbPreliminaryCalculation.Location = new Point(3, 27);
+            cbPreliminaryCalculation.Name = "cbPreliminaryCalculation";
+            cbPreliminaryCalculation.Size = new Size(219, 29);
+            cbPreliminaryCalculation.TabIndex = 3;
+            cbPreliminaryCalculation.Text = "Preliminary calculation";
+            cbPreliminaryCalculation.UseVisualStyleBackColor = true;
+            // 
             // bStart
             // 
-            bStart.Location = new Point(128, 744);
+            bStart.Dock = DockStyle.Bottom;
+            bStart.Location = new Point(3, 773);
             bStart.Name = "bStart";
-            bStart.Size = new Size(99, 34);
+            bStart.Size = new Size(219, 34);
             bStart.TabIndex = 0;
             bStart.Text = "Start";
             bStart.UseVisualStyleBackColor = true;
@@ -95,16 +123,6 @@
             // timer1
             // 
             timer1.Tick += timer1_Tick;
-            // 
-            // btNextStep
-            // 
-            btNextStep.Location = new Point(12, 55);
-            btNextStep.Name = "btNextStep";
-            btNextStep.Size = new Size(104, 34);
-            btNextStep.TabIndex = 4;
-            btNextStep.Text = "NextStep";
-            btNextStep.UseVisualStyleBackColor = true;
-            btNextStep.Click += btNextStep_Click;
             // 
             // Form1
             // 
@@ -118,6 +136,7 @@
             ((System.ComponentModel.ISupportInitialize)Board).EndInit();
             gbMainControl.ResumeLayout(false);
             gbMainControl.PerformLayout();
+            gbButtons.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -130,5 +149,6 @@
         private CheckBox cbPreliminaryCalculation;
         private System.Windows.Forms.Timer timer1;
         private Button btNextStep;
+        private GroupBox gbButtons;
     }
 }
