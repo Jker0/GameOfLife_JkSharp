@@ -13,23 +13,34 @@ namespace GameOfLife_JkSh
             InitializeComponent();
             Board.Image = new Bitmap(Board.Width, Board.Height);
             BoardCanvas = new BoardCanvas(Board.Image);
+            BoardCanvas.InitPBCanvas(20, 2, 40, 40);
         }
 
         private void bStart_Click(object sender, EventArgs e)
         {
-            if(bStart.Text == "Start")
-            { 
-                bStart.Text = "Stop";
-                btNextStep.Enabled = false;
-                timer1.Start();
+            if (bStart.Text == "Start")
+            {
+                StartGame();
             }
             else
             {
-                bStart.Text = "Start";
-                btNextStep.Enabled = true;
-                timer1.Stop();
+                StopGame();
             }
-            
+
+        }
+
+        private void StopGame()
+        {
+            bStart.Text = "Start";
+            btNextStep.Enabled = true;
+            timer1.Stop();
+        }
+
+        private void StartGame()
+        {
+            bStart.Text = "Stop";
+            btNextStep.Enabled = false;
+            timer1.Start();
         }
 
         private void Board_Click(object sender, EventArgs e)
@@ -46,9 +57,7 @@ namespace GameOfLife_JkSh
 
         private void bClear_Click(object sender, EventArgs e)
         {
-            bStart.Text = "Start";
-            btNextStep.Enabled = true;
-            timer1.Stop();
+            StopGame();
 
             BoardCanvas.ClearCanvas();
             Board.Refresh();
@@ -71,6 +80,23 @@ namespace GameOfLife_JkSh
             else
                 Game.NextStepWithoutPrelim(BoardCanvas);
 
+            Board.Refresh();
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+
+        }
+
+        private void trackBarScale_Scroll(object sender, EventArgs e)
+        {
+            StopGame();
+
+            int NewScale = 10 + trackBarScale.Value / 10;
+
+            BoardCanvas.InitPBCanvas(NewScale, 2, 40, 40);
+
+            BoardCanvas.ClearCanvas();
             Board.Refresh();
         }
     }
