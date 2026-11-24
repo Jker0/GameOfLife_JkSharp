@@ -95,5 +95,19 @@ namespace GameOfLife_JkSh
             BoardCanvas.ClearCanvas();
             Board.Refresh();
         }
+
+        private void cbDarkMode_CheckedChanged(object sender, EventArgs e)
+        {
+            StopGame();
+            List<Color> Colors = new List<Color> { Color.White, Color.Black, Color.Red, Color.Green };
+
+            if (cbDarkMode.Checked)
+                Colors = new List<Color> { Color.Black, Color.White, Color.Red, Color.Green };
+            
+
+            BoardCanvas.SetColors(Colors);
+            BoardCanvas.ClearCanvas();
+            Board.Refresh();
+        }
     }
 }

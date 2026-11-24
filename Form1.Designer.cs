@@ -41,6 +41,7 @@
             trackBarSpeed = new TrackBar();
             LbSpeed = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
+            cbDarkMode = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)Board).BeginInit();
             gbMainControl.SuspendLayout();
             gbScaleBoard.SuspendLayout();
@@ -61,8 +62,9 @@
             // 
             // gbMainControl
             // 
-            gbMainControl.Controls.Add(gbScaleBoard);
             gbMainControl.Controls.Add(gbButtons);
+            gbMainControl.Controls.Add(cbDarkMode);
+            gbMainControl.Controls.Add(gbScaleBoard);
             gbMainControl.Controls.Add(bStart);
             gbMainControl.Controls.Add(cbPreliminaryCalculation);
             gbMainControl.Controls.Add(trackBarSpeed);
@@ -102,7 +104,7 @@
             gbButtons.Controls.Add(btNextStep);
             gbButtons.Controls.Add(bClear);
             gbButtons.Dock = DockStyle.Top;
-            gbButtons.Location = new Point(3, 150);
+            gbButtons.Location = new Point(3, 179);
             gbButtons.Name = "gbButtons";
             gbButtons.Size = new Size(216, 65);
             gbButtons.TabIndex = 5;
@@ -178,6 +180,20 @@
             // 
             timer1.Tick += timer1_Tick;
             // 
+            // cbDarkMode
+            // 
+            cbDarkMode.AutoSize = true;
+            cbDarkMode.Checked = true;
+            cbDarkMode.CheckState = CheckState.Checked;
+            cbDarkMode.Dock = DockStyle.Top;
+            cbDarkMode.Location = new Point(3, 150);
+            cbDarkMode.Name = "cbDarkMode";
+            cbDarkMode.Size = new Size(216, 29);
+            cbDarkMode.TabIndex = 9;
+            cbDarkMode.Text = "Dark mode";
+            cbDarkMode.UseVisualStyleBackColor = true;
+            cbDarkMode.CheckedChanged += cbDarkMode_CheckedChanged;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -212,5 +228,6 @@
         private Label LbSpeed;
         private GroupBox gbScaleBoard;
         private TrackBar trackBarScale;
+        private CheckBox cbDarkMode;
     }
 }
