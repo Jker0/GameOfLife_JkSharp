@@ -83,7 +83,7 @@ namespace GameOfLife_JkSh
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-
+            timer1.Interval = 201 - 200 * trackBarSpeed.Value/100;
         }
 
         private void trackBarScale_Scroll(object sender, EventArgs e)
