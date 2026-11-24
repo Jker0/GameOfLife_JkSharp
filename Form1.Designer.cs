@@ -31,22 +31,23 @@
             components = new System.ComponentModel.Container();
             Board = new PictureBox();
             gbMainControl = new GroupBox();
-            gbScaleBoard = new GroupBox();
-            trackBarScale = new TrackBar();
             gbButtons = new GroupBox();
             btNextStep = new Button();
             bClear = new Button();
+            cbDarkMode = new CheckBox();
+            gbScaleBoard = new GroupBox();
+            trackBarScale = new TrackBar();
             bStart = new Button();
             cbPreliminaryCalculation = new CheckBox();
             trackBarSpeed = new TrackBar();
             LbSpeed = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
-            cbDarkMode = new CheckBox();
+            lbTurn = new Label();
             ((System.ComponentModel.ISupportInitialize)Board).BeginInit();
             gbMainControl.SuspendLayout();
+            gbButtons.SuspendLayout();
             gbScaleBoard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)trackBarScale).BeginInit();
-            gbButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)trackBarSpeed).BeginInit();
             SuspendLayout();
             // 
@@ -69,6 +70,7 @@
             gbMainControl.Controls.Add(cbPreliminaryCalculation);
             gbMainControl.Controls.Add(trackBarSpeed);
             gbMainControl.Controls.Add(LbSpeed);
+            gbMainControl.Controls.Add(lbTurn);
             gbMainControl.Dock = DockStyle.Right;
             gbMainControl.Location = new Point(938, 0);
             gbMainControl.Name = "gbMainControl";
@@ -76,35 +78,12 @@
             gbMainControl.TabIndex = 0;
             gbMainControl.TabStop = false;
             // 
-            // gbScaleBoard
-            // 
-            gbScaleBoard.Controls.Add(trackBarScale);
-            gbScaleBoard.Dock = DockStyle.Bottom;
-            gbScaleBoard.Location = new Point(3, 708);
-            gbScaleBoard.Name = "gbScaleBoard";
-            gbScaleBoard.Size = new Size(216, 150);
-            gbScaleBoard.TabIndex = 8;
-            gbScaleBoard.TabStop = false;
-            gbScaleBoard.Text = "Scale :";
-            // 
-            // trackBarScale
-            // 
-            trackBarScale.Dock = DockStyle.Top;
-            trackBarScale.Location = new Point(3, 27);
-            trackBarScale.Maximum = 100;
-            trackBarScale.Name = "trackBarScale";
-            trackBarScale.Size = new Size(210, 69);
-            trackBarScale.TabIndex = 0;
-            trackBarScale.TickFrequency = 10;
-            trackBarScale.Value = 100;
-            trackBarScale.Scroll += trackBarScale_Scroll;
-            // 
             // gbButtons
             // 
             gbButtons.Controls.Add(btNextStep);
             gbButtons.Controls.Add(bClear);
             gbButtons.Dock = DockStyle.Top;
-            gbButtons.Location = new Point(3, 179);
+            gbButtons.Location = new Point(3, 204);
             gbButtons.Name = "gbButtons";
             gbButtons.Size = new Size(216, 65);
             gbButtons.TabIndex = 5;
@@ -132,6 +111,43 @@
             bClear.UseVisualStyleBackColor = true;
             bClear.Click += bClear_Click;
             // 
+            // cbDarkMode
+            // 
+            cbDarkMode.AutoSize = true;
+            cbDarkMode.Checked = true;
+            cbDarkMode.CheckState = CheckState.Checked;
+            cbDarkMode.Dock = DockStyle.Top;
+            cbDarkMode.Location = new Point(3, 175);
+            cbDarkMode.Name = "cbDarkMode";
+            cbDarkMode.Size = new Size(216, 29);
+            cbDarkMode.TabIndex = 9;
+            cbDarkMode.Text = "Dark mode";
+            cbDarkMode.UseVisualStyleBackColor = true;
+            cbDarkMode.CheckedChanged += cbDarkMode_CheckedChanged;
+            // 
+            // gbScaleBoard
+            // 
+            gbScaleBoard.Controls.Add(trackBarScale);
+            gbScaleBoard.Dock = DockStyle.Bottom;
+            gbScaleBoard.Location = new Point(3, 708);
+            gbScaleBoard.Name = "gbScaleBoard";
+            gbScaleBoard.Size = new Size(216, 150);
+            gbScaleBoard.TabIndex = 8;
+            gbScaleBoard.TabStop = false;
+            gbScaleBoard.Text = "Scale :";
+            // 
+            // trackBarScale
+            // 
+            trackBarScale.Dock = DockStyle.Top;
+            trackBarScale.Location = new Point(3, 27);
+            trackBarScale.Maximum = 100;
+            trackBarScale.Name = "trackBarScale";
+            trackBarScale.Size = new Size(210, 69);
+            trackBarScale.TabIndex = 0;
+            trackBarScale.TickFrequency = 10;
+            trackBarScale.Value = 100;
+            trackBarScale.Scroll += trackBarScale_Scroll;
+            // 
             // bStart
             // 
             bStart.Dock = DockStyle.Bottom;
@@ -147,7 +163,7 @@
             // 
             cbPreliminaryCalculation.AutoSize = true;
             cbPreliminaryCalculation.Dock = DockStyle.Top;
-            cbPreliminaryCalculation.Location = new Point(3, 121);
+            cbPreliminaryCalculation.Location = new Point(3, 146);
             cbPreliminaryCalculation.Name = "cbPreliminaryCalculation";
             cbPreliminaryCalculation.Size = new Size(216, 29);
             cbPreliminaryCalculation.TabIndex = 3;
@@ -157,7 +173,7 @@
             // trackBarSpeed
             // 
             trackBarSpeed.Dock = DockStyle.Top;
-            trackBarSpeed.Location = new Point(3, 52);
+            trackBarSpeed.Location = new Point(3, 77);
             trackBarSpeed.Maximum = 100;
             trackBarSpeed.Name = "trackBarSpeed";
             trackBarSpeed.Size = new Size(216, 69);
@@ -170,7 +186,7 @@
             // 
             LbSpeed.AutoSize = true;
             LbSpeed.Dock = DockStyle.Top;
-            LbSpeed.Location = new Point(3, 27);
+            LbSpeed.Location = new Point(3, 52);
             LbSpeed.Name = "LbSpeed";
             LbSpeed.Size = new Size(76, 25);
             LbSpeed.TabIndex = 7;
@@ -180,19 +196,15 @@
             // 
             timer1.Tick += timer1_Tick;
             // 
-            // cbDarkMode
+            // lbTurn
             // 
-            cbDarkMode.AutoSize = true;
-            cbDarkMode.Checked = true;
-            cbDarkMode.CheckState = CheckState.Checked;
-            cbDarkMode.Dock = DockStyle.Top;
-            cbDarkMode.Location = new Point(3, 150);
-            cbDarkMode.Name = "cbDarkMode";
-            cbDarkMode.Size = new Size(216, 29);
-            cbDarkMode.TabIndex = 9;
-            cbDarkMode.Text = "Dark mode";
-            cbDarkMode.UseVisualStyleBackColor = true;
-            cbDarkMode.CheckedChanged += cbDarkMode_CheckedChanged;
+            lbTurn.AutoSize = true;
+            lbTurn.Dock = DockStyle.Top;
+            lbTurn.Location = new Point(3, 27);
+            lbTurn.Name = "lbTurn";
+            lbTurn.Size = new Size(98, 25);
+            lbTurn.TabIndex = 10;
+            lbTurn.Text = "Generation";
             // 
             // Form1
             // 
@@ -206,10 +218,10 @@
             ((System.ComponentModel.ISupportInitialize)Board).EndInit();
             gbMainControl.ResumeLayout(false);
             gbMainControl.PerformLayout();
+            gbButtons.ResumeLayout(false);
             gbScaleBoard.ResumeLayout(false);
             gbScaleBoard.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)trackBarScale).EndInit();
-            gbButtons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)trackBarSpeed).EndInit();
             ResumeLayout(false);
         }
@@ -229,5 +241,6 @@
         private GroupBox gbScaleBoard;
         private TrackBar trackBarScale;
         private CheckBox cbDarkMode;
+        private Label lbTurn;
     }
 }

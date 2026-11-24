@@ -11,6 +11,7 @@ namespace GameOfLife_JkSh
     internal static class Game
     {
         private static bool PreliminaryCalculation = true;
+        public static int Turn {  get; set; }
 
         public static void NextStepWithoutPrelim(BoardCanvas boardCanvas)
         {
@@ -53,6 +54,8 @@ namespace GameOfLife_JkSh
                             boardCanvas[Y, X] = 1;
                     }                          
                 }
+            if (!PreliminaryCalculation)
+                Turn++;
 
             PreliminaryCalculation = !PreliminaryCalculation;             
         }

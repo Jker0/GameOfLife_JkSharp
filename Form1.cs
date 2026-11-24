@@ -52,7 +52,14 @@ namespace GameOfLife_JkSh
 
         private void bClear_Click(object sender, EventArgs e)
         {
+            NewGame();
+        }
+
+        private void NewGame()
+        {
             StopGame();
+            Game.Turn = 0;
+            lbTurn.Text = $"Generation 0";
 
             BoardCanvas.ClearCanvas();
             Board.Refresh();
@@ -60,12 +67,7 @@ namespace GameOfLife_JkSh
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (cbPreliminaryCalculation.Checked)
-                Game.NextStepWithPrelim(BoardCanvas);
-            else
-                Game.NextStepWithoutPrelim(BoardCanvas);
-
-            Board.Refresh();
+            btNextStep_Click(sender, e);
         }
 
         private void btNextStep_Click(object sender, EventArgs e)
@@ -75,6 +77,7 @@ namespace GameOfLife_JkSh
             else
                 Game.NextStepWithoutPrelim(BoardCanvas);
 
+            lbTurn.Text = $"Generation {Game.Turn}";
             Board.Refresh();
         }
 
@@ -85,20 +88,16 @@ namespace GameOfLife_JkSh
 
         private void trackBarScale_Scroll(object sender, EventArgs e)
         {
-            StopGame();
-
             int NewScale = 10 + trackBarScale.Value / 10;
             int NewCountRowCol = 40 + 40 * (100 - trackBarScale.Value) / 100;
 
             BoardCanvas.InitPBCanvas(NewScale, 2, NewCountRowCol, NewCountRowCol);
 
-            BoardCanvas.ClearCanvas();
-            Board.Refresh();
+            NewGame();
         }
 
         private void cbDarkMode_CheckedChanged(object sender, EventArgs e)
         {
-            StopGame();
             List<Color> Colors = new List<Color> { Color.White, Color.Black, Color.Red, Color.Green };
 
             if (cbDarkMode.Checked)
@@ -106,8 +105,7 @@ namespace GameOfLife_JkSh
             
 
             BoardCanvas.SetColors(Colors);
-            BoardCanvas.ClearCanvas();
-            Board.Refresh();
+            NewGame();
         }
     }
 }
