@@ -43,11 +43,6 @@ namespace GameOfLife_JkSh
             timer1.Start();
         }
 
-        private void Board_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Board_MouseClick(object sender, MouseEventArgs e)
         {
             BoardCanvas.DrawCellByPoint(e.Location, 1);
@@ -93,8 +88,9 @@ namespace GameOfLife_JkSh
             StopGame();
 
             int NewScale = 10 + trackBarScale.Value / 10;
+            int NewCountRowCol = 40 + 40 * (100 - trackBarScale.Value) / 100;
 
-            BoardCanvas.InitPBCanvas(NewScale, 2, 40, 40);
+            BoardCanvas.InitPBCanvas(NewScale, 2, NewCountRowCol, NewCountRowCol);
 
             BoardCanvas.ClearCanvas();
             Board.Refresh();

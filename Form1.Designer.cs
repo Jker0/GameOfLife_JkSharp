@@ -54,10 +54,9 @@
             Board.Dock = DockStyle.Left;
             Board.Location = new Point(0, 0);
             Board.Name = "Board";
-            Board.Size = new Size(848, 895);
+            Board.Size = new Size(932, 895);
             Board.TabIndex = 0;
             Board.TabStop = false;
-            Board.Click += Board_Click;
             Board.MouseClick += Board_MouseClick;
             // 
             // gbMainControl
@@ -69,9 +68,9 @@
             gbMainControl.Controls.Add(trackBarSpeed);
             gbMainControl.Controls.Add(LbSpeed);
             gbMainControl.Dock = DockStyle.Right;
-            gbMainControl.Location = new Point(854, 0);
+            gbMainControl.Location = new Point(938, 0);
             gbMainControl.Name = "gbMainControl";
-            gbMainControl.Size = new Size(225, 895);
+            gbMainControl.Size = new Size(222, 895);
             gbMainControl.TabIndex = 0;
             gbMainControl.TabStop = false;
             // 
@@ -81,7 +80,7 @@
             gbScaleBoard.Dock = DockStyle.Bottom;
             gbScaleBoard.Location = new Point(3, 708);
             gbScaleBoard.Name = "gbScaleBoard";
-            gbScaleBoard.Size = new Size(219, 150);
+            gbScaleBoard.Size = new Size(216, 150);
             gbScaleBoard.TabIndex = 8;
             gbScaleBoard.TabStop = false;
             gbScaleBoard.Text = "Scale :";
@@ -92,10 +91,10 @@
             trackBarScale.Location = new Point(3, 27);
             trackBarScale.Maximum = 100;
             trackBarScale.Name = "trackBarScale";
-            trackBarScale.Size = new Size(213, 69);
+            trackBarScale.Size = new Size(210, 69);
             trackBarScale.TabIndex = 0;
             trackBarScale.TickFrequency = 10;
-            trackBarScale.Value = 50;
+            trackBarScale.Value = 100;
             trackBarScale.Scroll += trackBarScale_Scroll;
             // 
             // gbButtons
@@ -105,7 +104,7 @@
             gbButtons.Dock = DockStyle.Top;
             gbButtons.Location = new Point(3, 150);
             gbButtons.Name = "gbButtons";
-            gbButtons.Size = new Size(219, 65);
+            gbButtons.Size = new Size(216, 65);
             gbButtons.TabIndex = 5;
             gbButtons.TabStop = false;
             // 
@@ -123,7 +122,7 @@
             // bClear
             // 
             bClear.Dock = DockStyle.Right;
-            bClear.Location = new Point(119, 27);
+            bClear.Location = new Point(116, 27);
             bClear.Name = "bClear";
             bClear.Size = new Size(97, 35);
             bClear.TabIndex = 2;
@@ -136,7 +135,7 @@
             bStart.Dock = DockStyle.Bottom;
             bStart.Location = new Point(3, 858);
             bStart.Name = "bStart";
-            bStart.Size = new Size(219, 34);
+            bStart.Size = new Size(216, 34);
             bStart.TabIndex = 0;
             bStart.Text = "Start";
             bStart.UseVisualStyleBackColor = true;
@@ -148,7 +147,7 @@
             cbPreliminaryCalculation.Dock = DockStyle.Top;
             cbPreliminaryCalculation.Location = new Point(3, 121);
             cbPreliminaryCalculation.Name = "cbPreliminaryCalculation";
-            cbPreliminaryCalculation.Size = new Size(219, 29);
+            cbPreliminaryCalculation.Size = new Size(216, 29);
             cbPreliminaryCalculation.TabIndex = 3;
             cbPreliminaryCalculation.Text = "Preliminary calculation";
             cbPreliminaryCalculation.UseVisualStyleBackColor = true;
@@ -159,7 +158,7 @@
             trackBarSpeed.Location = new Point(3, 52);
             trackBarSpeed.Maximum = 100;
             trackBarSpeed.Name = "trackBarSpeed";
-            trackBarSpeed.Size = new Size(219, 69);
+            trackBarSpeed.Size = new Size(216, 69);
             trackBarSpeed.TabIndex = 6;
             trackBarSpeed.TickFrequency = 10;
             trackBarSpeed.Value = 50;
@@ -183,7 +182,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1079, 895);
+            ClientSize = new Size(1160, 895);
             Controls.Add(gbMainControl);
             Controls.Add(Board);
             Name = "Form1";
