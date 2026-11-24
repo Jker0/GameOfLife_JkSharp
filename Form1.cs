@@ -45,7 +45,7 @@ namespace GameOfLife_JkSh
 
         private void Board_MouseClick(object sender, MouseEventArgs e)
         {
-            BoardCanvas.DrawCellByPoint(e.Location, 1);
+            BoardCanvas.MarkCellByPoint(e.Location);
             Board.Refresh();
 
         }
